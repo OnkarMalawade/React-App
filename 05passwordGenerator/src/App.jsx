@@ -7,10 +7,11 @@ function App() {
   const [charAllowed, setCharAllowed] = useState(false)
   const [password, setPassword] = useState("")
 
-  // useRef hook
+  // useRef hook : it holds selected Reference vale in it
   const passwordRef = useRef(null)
 
-  // execute method
+  // execute method 
+  // use callback call when some change renders 
   const passwordGenerator = useCallback( () => {
 
     // password generator
@@ -43,7 +44,7 @@ function App() {
     window.navigator.clipboard.writeText(password)
   }, [password])
 
-  //execute
+  //execute : rendering error solved using useEffect
   useEffect(() => { 
     passwordGenerator()
   }, [length, numberAllowed, charAllowed,passwordGenerator])
